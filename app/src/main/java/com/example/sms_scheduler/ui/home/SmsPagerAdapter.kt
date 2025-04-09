@@ -10,8 +10,8 @@ class SmsPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
     override fun createFragment(position: Int): Fragment {
         return when (position) {
             0 -> PendingSmsFragment()
-            1 -> PendingSmsFragment()
-            2 -> PendingSmsFragment()
+            1 -> SentSmsFragment()
+            2 -> CancelledSmsFragment()
             else -> throw IllegalArgumentException("Invalid tab position")
         }
     }}

@@ -3,16 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.PendingSmsFragment">
+    tools:context=".ui.home.CancelledSmsFragment">
 
-    <ListView
-        android:id="@+id/listView"
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/sms_list_item"
-        android:layout_marginTop="12dp"
-        android:dividerHeight="10.0sp"
-
-        />
+        android:text="Hello" />
 
 </FrameLayout>
