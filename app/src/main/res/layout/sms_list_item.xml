@@ -2,45 +2,54 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginStart="12dp"
-    android:layout_marginEnd="12dp"
-    android:layout_marginVertical="10dp"
-    android:layout_marginHorizontal="10dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
     app:cardCornerRadius="20dp"
     app:cardElevation="3dp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/material_dynamic_neutral_variant95"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_light_background"
         android:orientation="vertical"
-        android:padding="16dp" >
+        android:padding="16dp">
 
         <TextView
             android:id="@+id/tvSmsContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@{viewModel.content}"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="8dp"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvSentTo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text='@{"Sent To: " + viewModel.sentTo}'
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="4dp"
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tvDateTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text='@{"Date/Time: " + viewModel.dateTime}'
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textSize="14sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancel_button"
+            android:layout_width="35pt"
+            android:layout_height="40dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="8dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/cancel"
+            android:textSize="10sp"
+            app:backgroundTint="@android:color/holo_red_dark"
+            app:cornerRadius="17dp"
+            tools:ignore="SmallSp" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -7,29 +7,39 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.Button
 import android.widget.TextView
+import androidx.fragment.app.viewModels
 import com.example.sms_scheduler.R
+import com.google.android.material.button.MaterialButton
 
-class SmsListViewAdapter(context: Context, smsList: List<SmsModel>) :
-    ArrayAdapter<SmsModel>(context, 0, smsList) {
+class SmsListViewAdapter(
+    context: Context,
+    private val onCancel: (SmsModel) -> Unit
+) : ArrayAdapter<SmsModel>(context, 0, mutableListOf()) {
+
+    private val smsList = mutableListOf<SmsModel>()
 
     @SuppressLint("SetTextI18n")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        // Reuse the view if possible; otherwise inflate a new one.
         val view = convertView ?: LayoutInflater.from(context)
             .inflate(R.layout.sms_list_item, parent, false)
-
-        val sms = getItem(position)
-
-        // Bind data to views.
-        val tvSmsContent = view.findViewById<TextView>(R.id.tvSmsContent)
-        val tvSentTo = view.findViewById<TextView>(R.id.tvSentTo)
-        val tvDateTime = view.findViewById<TextView>(R.id.tvDateTime)
-
-        tvSmsContent.text = sms?.content ?: ""
-        tvSentTo.text = "Sent To: ${sms?.sentTo ?: ""}"
-        tvDateTime.text = "Date/Time: ${sms?.dateTime ?: ""}"
-
+        val sms = smsList[position]
+        view.findViewById<TextView>(R.id.tvSmsContent).text = sms.content
+        view.findViewById<TextView>(R.id.tvSentTo).text = "Sent To: ${sms.sentTo}"
+        view.findViewById<TextView>(R.id.tvDateTime).text = sms.dateTime
+        view.findViewById<MaterialButton>(R.id.cancel_button).setOnClickListener {
+            onCancel(sms)
+        }
         return view
+    }
+
+    override fun getCount() = smsList.size
+    override fun getItem(position: Int) = smsList[position]
+
+    fun updateList(newList: List<SmsModel>) {
+        smsList.clear()
+        smsList.addAll(newList)
+        notifyDataSetChanged()
     }
 }
