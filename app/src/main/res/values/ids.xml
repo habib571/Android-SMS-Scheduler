@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="time_input_layout" type="id" />
+    <item name="save_button" type="id" />
+    <item name="time_edit_text" type="id" />
+    <item name="label_time" type="id" />
+    <item name="date_input_layout" type="id" />
+    <item name="date_edit_text" type="id" />
+    <item name="label_date" type="id" />
+    <item name="message_input_layout" type="id" />
+    <item name="message_edit_text" type="id" />
+    <item name="label_message" type="id" />
+    <item name="phone_input_layout" type="id" />
+    <item name="phone_edit_text" type="id" />
+    <item name="label_phone" type="id" />
+</resources>

@@ -40,12 +40,12 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/cancel_button"
-            android:layout_width="35pt"
-            android:layout_height="40dp"
+            android:layout_width="40pt"
+            android:layout_height="50dp"
             android:paddingHorizontal="12dp"
             android:paddingVertical="8dp"
             android:layout_marginTop="10dp"
-            android:text="@string/cancel"
+            android:text="@string/cancelled"
             android:textSize="10sp"
             app:backgroundTint="@android:color/holo_red_dark"
             app:cornerRadius="17dp"

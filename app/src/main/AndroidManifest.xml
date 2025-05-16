@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Smsscheduler"
         tools:targetApi="31">
         <activity
+            android:name=".ui.home.FormSendMessagActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
