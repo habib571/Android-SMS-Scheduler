@@ -24,14 +24,11 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        // Initialize adapter using "this" fragment as the lifecycle owner.
         adapter = SmsPagerAdapter(this)
         binding.viewPager.adapter = adapter
 
-        // Define tab titles.
         val tabTitles = listOf("Pending", "Sent", "Cancelled")
 
-        // Attach the TabLayout to the ViewPager2.
         TabLayoutMediator(binding.tabLayout, binding.viewPager) { tab, position ->
             tab.text = tabTitles[position]
         }.attach()
