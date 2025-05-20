@@ -73,13 +73,13 @@ class SMSDatabaseHelper(context: Context) :
     }
 
 
-    fun getPendingSms(): List<SmsModel> {
+      fun getSmsByStatus(status: SmsStatus): List<SmsModel> {
         val db = readableDatabase
         val cursor = db.query(
             TABLE_SMS,
             null,
             "$COLUMN_STATUS = ?",
-            arrayOf(SmsStatus.PENDING.name),
+            arrayOf(status.name),
             null, null,
             "$COLUMN_DATE || ' ' || $COLUMN_TIME DESC"
         )
@@ -96,6 +96,7 @@ class SMSDatabaseHelper(context: Context) :
         cursor.close()
         return list
     }
+
 
     fun updateSmsStatus(id: Int, status: SmsStatus) {
         val db = writableDatabase

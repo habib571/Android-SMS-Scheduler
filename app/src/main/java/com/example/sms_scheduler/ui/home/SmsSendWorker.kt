@@ -15,7 +15,7 @@ class SmsSendWorker(
     }
     override suspend fun doWork(): Result {
         val db = SMSDatabaseHelper(applicationContext)
-        val pendingList = db.getPendingSms()
+        val pendingList = db.getSmsByStatus(SmsStatus.PENDING)
         if (pendingList.isEmpty()) {
             return Result.success()
         }

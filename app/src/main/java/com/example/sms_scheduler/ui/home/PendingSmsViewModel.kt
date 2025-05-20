@@ -22,13 +22,13 @@ class PendingSmsViewModel(application: Application) : AndroidViewModel(applicati
     }
     fun refreshPending() {
         viewModelScope.launch(Dispatchers.IO) {
-            _smsList.postValue(dbHelper.getPendingSms())
+            _smsList.postValue(dbHelper.getSmsByStatus(SmsStatus.PENDING))
         }
     }
 
     private fun loadPending() {
         viewModelScope.launch(Dispatchers.IO) {
-            val list = dbHelper.getPendingSms()
+            val list = dbHelper.getSmsByStatus(SmsStatus.PENDING)
             _smsList.postValue(list)
         }
     }

@@ -11,6 +11,8 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="sent">Sent</string>
-    <string name="cancelled">Cancelled</string>
+    <string name="cancel">Cancel</string>
     <string name="pending">Pending</string>
+    <string name="cancelled">Cancelled\n</string>
+
 </resources>

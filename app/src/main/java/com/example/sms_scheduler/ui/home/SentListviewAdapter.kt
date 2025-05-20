@@ -2,20 +2,15 @@ package com.example.sms_scheduler.ui.home
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.provider.Telephony
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.Button
 import android.widget.TextView
-import androidx.fragment.app.viewModels
 import com.example.sms_scheduler.R
-import com.google.android.material.button.MaterialButton
 
-class SmsListViewAdapter(
+class SentListviewAdapter(
     context: Context,
-    private val onCancel: (SmsModel) -> Unit
 ) : ArrayAdapter<SmsModel>(context, 0, mutableListOf()) {
 
     private val smsList = mutableListOf<SmsModel>()
@@ -28,9 +23,6 @@ class SmsListViewAdapter(
         view.findViewById<TextView>(R.id.tvSmsContent).text = sms.content
         view.findViewById<TextView>(R.id.tvSentTo).text = "Sent To: ${sms.sentTo}"
         view.findViewById<TextView>(R.id.tvDateTime).text = sms.dateTime
-       view.findViewById<MaterialButton>(R.id.cancel_button).setOnClickListener {
-            onCancel(sms)
-        }
         return view
     }
 

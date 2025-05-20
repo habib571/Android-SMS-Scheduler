@@ -3,4 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.CancelledSmsFragment"/>
+    tools:context=".ui.home.CancelledSmsFragment">
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/sent_cancelled_list_item"
+        android:layout_marginTop="12dp"
+        />
+
+</FrameLayout>

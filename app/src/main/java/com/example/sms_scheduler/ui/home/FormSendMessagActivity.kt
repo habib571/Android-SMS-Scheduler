@@ -109,7 +109,6 @@ class FormSendMessageActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == SMS_REQUEST_CODE && grantResults.firstOrNull() == PackageManager.PERMISSION_GRANTED) {
-            // Permission granted => invoke save-button listener action again
             findViewById<Button>(R.id.save_button).performClick()
         } else {
             Toast.makeText(this, "SMS permission is required", Toast.LENGTH_SHORT).show()
@@ -117,7 +116,6 @@ class FormSendMessageActivity : AppCompatActivity() {
     }
 
     private fun planifyThenSave(calendar: Calendar) {
-        // 1) read values
         val phone   = phoneEditText.text.toString().trim()
         val content = messageEditText.text.toString().trim()
         val date    = dateEditText.text.toString().trim()
@@ -133,7 +131,6 @@ class FormSendMessageActivity : AppCompatActivity() {
             return
         }
 
-        // 2) schedule WorkManager
         val sdf         = SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault())
         val scheduledMs = sdf.parse("$date $time")?.time ?: System.currentTimeMillis()
         val delay       = (scheduledMs - System.currentTimeMillis()).coerceAtLeast(0L)
