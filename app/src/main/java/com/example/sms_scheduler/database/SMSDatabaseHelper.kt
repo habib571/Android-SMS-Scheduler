@@ -104,4 +104,24 @@ class SMSDatabaseHelper(context: Context) :
         }
         db.update(TABLE_SMS, cv, "$COLUMN_ID = ?", arrayOf(id.toString()))
     }
+    fun getSmsById(id: Int): SmsModel? {
+        val db = readableDatabase
+        val cursor = db.query(
+            TABLE_SMS,
+            null,
+            "$COLUMN_ID = ?",
+            arrayOf(id.toString()),
+            null, null, null
+        )
+        val sms = if (cursor.moveToFirst()) {
+            val phone    = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PHONE))
+            val message  = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MESSAGE))
+            val date     = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DATE))
+            val time     = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TIME))
+            val statusStr= cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_STATUS))
+            SmsModel(id, message, phone, "$date $time", SmsStatus.valueOf(statusStr))
+        } else null
+        cursor.close()
+        return sms
+    }
 }

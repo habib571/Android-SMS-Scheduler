@@ -18,8 +18,9 @@
         android:theme="@style/Theme.Smsscheduler"
         tools:targetApi="31">
         <activity
-            android:name=".ui.home.FormSendMessagActivity"
-            android:exported="false" />
+            android:name=".ui.home.FormSendMessageActivity"
+            android:exported="false"
+            tools:ignore="MissingClass" />
         <activity
 
             android:name=".MainActivity"

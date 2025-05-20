@@ -12,7 +12,8 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.sms_scheduler.databinding.ActivityMainBinding
-import com.example.sms_scheduler.ui.home.FormSendMessagActivity
+import com.example.sms_scheduler.ui.home.FormSendMessageActivity
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
 
         binding.appBarMain.fab.setOnClickListener {
-            val intent = Intent(this, FormSendMessagActivity::class.java)
+            val intent = Intent(this, FormSendMessageActivity::class.java)
             startActivity(intent)
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout

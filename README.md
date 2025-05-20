@@ -1,5 +1,5 @@
 # SMS
-Mobile Application for SMS scheduling
+Mobile Application for SMS scheduling   
 
 
 # Commit Messages
